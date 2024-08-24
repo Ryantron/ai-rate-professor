@@ -1,124 +1,124 @@
 {
   "reviews": [
     {
-      "professor": "Dr. Emily Smith",
-      "subject": "Introduction to Psychology",
+      "professor": "Dr. Emily Thompson",
+      "subject": "Computer Science",
       "stars": 5,
-      "review": "Dr. Smith is an excellent professor who explains concepts clearly and is always willing to help students."
+      "review": "Excellent professor with clear explanations and very approachable."
     },
     {
-      "professor": "Professor John Doe",
-      "subject": "Calculus I",
+      "professor": "Dr. Michael Carter",
+      "subject": "Mathematics",
+      "stars": 4,
+      "review": "Great lecturer but can be a bit fast-paced at times."
+    },
+    {
+      "professor": "Dr. Sophia Patel",
+      "subject": "Physics",
       "stars": 3,
-      "review": "The lectures are detailed, but the exams are quite challenging. Extra study is required."
+      "review": "Good content, but could improve on student engagement."
     },
     {
-      "professor": "Dr. Sarah Lee",
-      "subject": "Modern European History",
-      "stars": 4,
-      "review": "Very engaging lectures, but the reading load is heavy. Still, she makes history interesting."
-    },
-    {
-      "professor": "Professor Michael Brown",
-      "subject": "Organic Chemistry",
-      "stars": 2,
-      "review": "Content is difficult, and the lectures are fast-paced. Not very approachable outside of class."
-    },
-    {
-      "professor": "Dr. Linda Davis",
-      "subject": "Introduction to Sociology",
+      "professor": "Dr. James Anderson",
+      "subject": "Chemistry",
       "stars": 5,
-      "review": "Dr. Davis is amazing! Her passion for sociology is contagious, and she really cares about her students."
+      "review": "Challenging course but rewarding. Great support provided!"
     },
     {
-      "professor": "Professor James Wilson",
-      "subject": "Macroeconomics",
+      "professor": "Dr. Olivia Harris",
+      "subject": "English Literature",
+      "stars": 2,
+      "review": "Class felt disorganized and difficult to follow."
+    },
+    {
+      "professor": "Dr. Daniel Lee",
+      "subject": "Biology",
+      "stars": 4,
+      "review": "Knowledgeable but sometimes hard to understand."
+    },
+    {
+      "professor": "Dr. Sarah Mitchell",
+      "subject": "Psychology",
+      "stars": 5,
+      "review": "Really engaging lectures with great real-world examples."
+    },
+    {
+      "professor": "Dr. William Brown",
+      "subject": "History",
       "stars": 3,
-      "review": "The course is solid, but Professor Wilson's teaching style is a bit dry. You need to be self-motivated."
+      "review": "Decent lecturer but readings are overwhelming."
     },
     {
-      "professor": "Dr. Maria Gonzalez",
-      "subject": "Spanish Literature",
+      "professor": "Dr. Elizabeth Kim",
+      "subject": "Sociology",
       "stars": 4,
-      "review": "Dr. Gonzalez is very knowledgeable and creates a welcoming environment for discussions."
+      "review": "Friendly and knowledgeable, though assignments are challenging."
     },
     {
-      "professor": "Professor David Chen",
-      "subject": "Introduction to Computer Science",
+      "professor": "Dr. David Wilson",
+      "subject": "Political Science",
       "stars": 5,
-      "review": "Professor Chen is a fantastic teacher. His explanations are clear, and he's always available for help."
+      "review": "Very insightful and makes the subject matter interesting."
     },
     {
-      "professor": "Dr. Robert Johnson",
-      "subject": "Physics II",
-      "stars": 2,
-      "review": "Difficult material, and Dr. Johnson's lectures are hard to follow. Study sessions are a must."
-    },
-    {
-      "professor": "Professor Jennifer Clark",
-      "subject": "World Literature",
-      "stars": 4,
-      "review": "Great discussions and a diverse selection of texts. Professor Clark encourages critical thinking."
-    },
-    {
-      "professor": "Dr. Charles Martinez",
-      "subject": "Statistics for Social Sciences",
+      "professor": "Dr. Jennifer Collins",
+      "subject": "Philosophy",
       "stars": 3,
-      "review": "Dr. Martinez is knowledgeable, but the lectures can be monotonous. The material is useful, though."
+      "review": "Interesting topics, but grading is tough."
     },
     {
-      "professor": "Professor Angela White",
-      "subject": "Biology I",
-      "stars": 5,
-      "review": "Professor White is an incredible lecturer who makes complex topics accessible and interesting."
-    },
-    {
-      "professor": "Dr. Richard Harris",
-      "subject": "Political Science 101",
+      "professor": "Dr. Mark Hernandez",
+      "subject": "Economics",
       "stars": 4,
-      "review": "Engaging lectures with real-world examples. Dr. Harris is very approachable for extra help."
+      "review": "Provides great examples but can be a bit dry."
     },
     {
-      "professor": "Professor Karen Lewis",
-      "subject": "Introduction to Philosophy",
-      "stars": 2,
-      "review": "The lectures are abstract and hard to follow. Professor Lewis can be unresponsive to questions."
-    },
-    {
-      "professor": "Dr. Kevin Walker",
-      "subject": "Environmental Science",
-      "stars": 4,
-      "review": "Dr. Walker is passionate about the subject and provides lots of real-world examples."
-    },
-    {
-      "professor": "Professor Nancy Perez",
+      "professor": "Dr. Rachel Johnson",
       "subject": "Art History",
       "stars": 5,
-      "review": "Fantastic course! Professor Perez's enthusiasm for art is evident in every lecture."
+      "review": "Makes art history fascinating with deep analysis and passion."
     },
     {
-      "professor": "Dr. William Thomas",
-      "subject": "Microeconomics",
-      "stars": 3,
-      "review": "Challenging course with a lot of math. Dr. Thomas is knowledgeable but not very engaging."
-    },
-    {
-      "professor": "Professor Barbara King",
-      "subject": "Creative Writing",
-      "stars": 4,
-      "review": "Professor King is inspiring and gives constructive feedback on assignments."
-    },
-    {
-      "professor": "Dr. Steven Moore",
-      "subject": "Introduction to Anthropology",
-      "stars": 5,
-      "review": "Dr. Moore is an outstanding professor who makes every lecture interesting and relatable."
-    },
-    {
-      "professor": "Professor Lisa Turner",
-      "subject": "Chemistry I",
+      "professor": "Dr. Andrew Roberts",
+      "subject": "Statistics",
       "stars": 2,
-      "review": "The material is tough, and Professor Turner's lectures are not very clear. Be prepared to study hard."
+      "review": "Confusing lectures, and not much support outside of class."
+    },
+    {
+      "professor": "Dr. Julia White",
+      "subject": "Environmental Science",
+      "stars": 4,
+      "review": "Very engaging and passionate about the subject."
+    },
+    {
+      "professor": "Dr. George Taylor",
+      "subject": "Engineering",
+      "stars": 3,
+      "review": "Decent professor but workload is extremely heavy."
+    },
+    {
+      "professor": "Dr. Laura Scott",
+      "subject": "Anthropology",
+      "stars": 5,
+      "review": "One of the best professors I've had, very passionate!"
+    },
+    {
+      "professor": "Dr. Kevin Wright",
+      "subject": "Law",
+      "stars": 4,
+      "review": "Challenging course but great feedback on papers."
+    },
+    {
+      "professor": "Dr. Susan Evans",
+      "subject": "Business",
+      "stars": 2,
+      "review": "Lack of organization makes it hard to follow the material."
+    },
+    {
+      "professor": "Dr. Thomas Green",
+      "subject": "Philosophy",
+      "stars": 3,
+      "review": "Philosophically deep, but very difficult to follow at times."
     }
   ]
 }
