@@ -32,7 +32,7 @@ const systemPrompt = `You are an intelligent assistant for the RateMyProfessor s
 
 3. **Response Format:**
 - **Query:** Repeat the student's query for context.
-- **Top 3 Professors:**
+- **Top 3 Professors of Relevance:**
     1. **Professor Name:** [Name]
         - **Department:** [Department]
         - **Rating:** [Rating]
