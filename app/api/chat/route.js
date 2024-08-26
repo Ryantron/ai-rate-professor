@@ -2,6 +2,7 @@ import OpenAI from "openai";
 import { Pinecone } from "@pinecone-database/pinecone";
 import fetch from "node-fetch";
 import { NextResponse } from "next/server";
+
 const MODEL = "sentence-transformers/all-mpnet-base-v2";
 const HUGGINGFACE_API_TOKEN = process.env.HUGGINGFACE_API_TOKEN;
 
@@ -49,6 +50,7 @@ const systemPrompt = `You are an intelligent assistant for the RateMyProfessor s
 4. **Quality Assurance:**
 - Ensure that the information provided is accurate and relevant to the student's query.
 - If multiple professors have similar ratings, choose those with the most positive or detailed feedback.
+- If you are unable to find at least 3 Professors, just say "Top Professors" instead of saying "Top 3 Professors", followed by the relevant information given
 
 ### Example:
 
