@@ -58,7 +58,7 @@ function ProfessorCarousel() {
             maxWidth: 600,
             margin: 'auto',
             backgroundColor: '#D8A48F',
-            color: '#EFEBCE',
+            color: '#F8F6E5',
             padding: 4,
           }}
         >
