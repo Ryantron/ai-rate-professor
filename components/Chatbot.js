@@ -91,6 +91,8 @@ const Chatbot = () => {
   }, [messages]);
 
   return (
+  <>
+    
     <Box sx={{ display: 'flex', flexDirection: 'column', height: '100vh', p: 2, width: '75%', mx: 'auto' }}>
       <Typography variant="h4" gutterBottom>
         AI Chatbot
@@ -136,6 +138,7 @@ const Chatbot = () => {
         />
       </Box>
     </Box>
+  </>
   );
 };
 
