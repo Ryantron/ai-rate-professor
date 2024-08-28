@@ -64,6 +64,9 @@ function ProfessorCarousel() {
                 {professor.name}
               </Typography>
               <Typography variant="body1">
+                <strong>School:</strong> {professor.school}
+              </Typography>
+              <Typography variant="body1">
                 <strong>Department:</strong> {professor.department}
               </Typography>
               <Typography variant="body1">

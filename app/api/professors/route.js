@@ -51,7 +51,7 @@ async function fetchEmbeddingsWithRetry(text, retries = 5) {
 // POST function to handle incoming requests
 export async function GET() {
   // Encode the text using the sentence-transformers model
-  const queryEmbedding = await fetchEmbeddingsWithRetry('Professors A');
+  const queryEmbedding = await fetchEmbeddingsWithRetry('Dr. A B C');
 
   // Query Pinecone with the generated embedding
   const results = await index.query({
@@ -60,10 +60,12 @@ export async function GET() {
     vector: queryEmbedding,
   });
   
+  console.log(results.matches);
   const professors = results.matches.map(match => ({
-    name: match.id,
-    department: match.metadata.subject,
-    rating: `${match.metadata.stars}/5`,
+    name: match.metadata.professor,
+    school: match.metadata.school,
+    department: match.metadata.department,
+    rating: `${match.metadata.quality}/5`,
     review: match.metadata.review,
   }));
 
