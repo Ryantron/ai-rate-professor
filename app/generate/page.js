@@ -1,12 +1,15 @@
+import { Container } from "@mui/material";
+import Navbar from "@/components/navbar"
 import Chatbot from "@/components/chatbot";
-import { Box, Container } from "@mui/material";
 
 export default function Generate() {
   return (
-    <Box>
+    <>
+      {/* Header */}
+      <Navbar home={false}/>
       <Container>
         <Chatbot/>
       </Container>
-    </Box>
+    </>
   );
 }

@@ -27,34 +27,35 @@ import axios from "axios";
 
 // Define the shape of a message according to the OpenAI API schema
 const MessageComponent = ({ message }) => (
-  <Box
-    sx={{
-      textAlign: message.roles === "user" ? "right" : "left",
-      display: "flex",
-      alignItems: "flex-start",
-    }}
-  >
-    {message.roles !== "user" && (
-      <Avatar sx={{ bgcolor: "grey.300", mr: 1 }}>
-        <BotIcon />
-      </Avatar>
-    )}
-    <Typography
+  <>
+    <Box
       sx={{
-        display: "inline-block",
-        bgcolor: message.roles === "user" ? "primary.main" : "transparent",
-        color: message.roles === "user" ? "white" : "black",
-        borderRadius: 3,
-        p: message.roles === "user" ? 1 : 0,
-        paddingLeft: message.roles === "user" ? 3 : 0,
-        paddingRight: message.roles === "user" ? 3 : 0,
-        mb: 1,
-        wordBreak: "break-word", // Ensure long words break appropriately
+        textAlign: message.roles === "user" ? "right" : "left",
+        display: "flex",
+        alignItems: "flex-start",
+        justifyContent: message.roles === "user" ? "flex-end" : "flex-start", // Align user text to the right
       }}
     >
-      <ReactMarkdown>{message.content}</ReactMarkdown>
-    </Typography>
-  </Box>
+      {message.roles !== "user" && (
+        <Avatar sx={{ bgcolor: "#F6B17A", mt: 2, mr: 1 }}>
+          <BotIcon />
+        </Avatar>
+      )}
+      <Typography
+        sx={{
+          display: "inline-block",
+          bgcolor: message.roles === "user" ? "#F6B17A" : "transparent",
+          color: message.roles === "user" ? "white" : "white",
+          borderRadius: 3,
+          px: 2,
+          mb: 1,
+          wordBreak: "break-word", // Ensure long words break appropriately
+        }}
+      >
+        <ReactMarkdown>{message.content}</ReactMarkdown>
+      </Typography>
+    </Box>
+  </>
 );
 
 const Chatbot = () => {
@@ -180,22 +181,22 @@ const Chatbot = () => {
         mx: "auto",
       }}
     >
-      <Typography variant="h4" gutterBottom>
-        AI Chatbot
-      </Typography>
       <Paper
         sx={{
           flex: 1,
-          p: 2,
+          p: 4,
           overflowY: "auto",
           mb: 2,
-          maxHeight: "77%",
+          minHeight: "67vh",
+          maxHeight: "67vh",
           boxShadow: "none",
+          borderRadius: 4,
+          backgroundColor: "#424769",
         }}
       >
         {messages.length === 0 ? (
           <Typography
-            sx={{ textAlign: "center", color: "grey.500", flex: 1 }}
+            sx={{ textAlign: "center", color: "#F6B17A", mt: "30vh", flex: 1 }}
             aria-live="polite"
           >
             Start the conversation by typing your message...
@@ -213,10 +214,21 @@ const Chatbot = () => {
           <Fab onClick={handleClickOpen} color="primary">
             <InsertLinkIcon />
           </Fab>
-          <Dialog open={open} onClose={handleClose}>
-            <DialogTitle>Submit RateMyProfessors Link</DialogTitle>
+          <Dialog
+            open={open}
+            onClose={handleClose}
+            PaperProps={{
+              sx: {
+                backgroundColor: "#7077A1", // Change background color of Dialog Paper
+                borderRadius: 4,
+              },
+            }}
+          >
+            <DialogTitle sx={{ color: "white" }}>
+              Submit RateMyProfessors Link
+            </DialogTitle>
             <DialogContent>
-              <DialogContentText>
+              <DialogContentText sx={{ color: "white" }}>
                 To add a professor&apos;s information, please enter the
                 RateMyProfessors link here.
               </DialogContentText>
@@ -236,10 +248,33 @@ const Chatbot = () => {
                     type="url"
                     fullWidth
                     variant="standard"
+                    InputLabelProps={{
+                      sx: { color: "white" }, // Change label color to white
+                    }}
+                    sx={{
+                      "& .MuiInput-underline:before": {
+                        borderBottomColor: "white", // Change underline color to white
+                      },
+                      "& .MuiInputBase-input": {
+                        color: "white", // Change input text color to white
+                      },
+                      "& .MuiOutlinedInput-root": {
+                        "&.Mui-focused fieldset": {
+                          borderColor: "#F6B17A",
+                        },
+                      },
+                      "& .MuiInputLabel-root.Mui-focused": {
+                        color: "#F6B17A",
+                      },
+                    }}
                   />
                   <DialogActions>
-                    <Button onClick={handleClose}>Cancel</Button>
-                    <Button type="submit">Submit</Button>
+                    <Button onClick={handleClose} sx={{ color: "#F6B17A" }}>
+                      Cancel
+                    </Button>
+                    <Button type="submit" sx={{ color: "#F6B17A" }}>
+                      Submit
+                    </Button>
                   </DialogActions>
                 </form>
               )}
@@ -283,16 +318,27 @@ const Chatbot = () => {
           disabled={msgLoading}
           sx={{
             borderRadius: 30,
+            backgroundColor: "#7077A1",
             "& .MuiOutlinedInput-root": {
               borderRadius: 30,
-              paddingLeft: 3,
+              paddingLeft: 2,
+              color: "white", // Set input text color to white
+              "& fieldset": {
+                borderColor: "transparent", // Remove border highlight if possible
+              },
+              "&:hover fieldset": {
+                borderColor: "transparent", // Remove border on hover
+              },
+              "&.Mui-focused fieldset": {
+                borderColor: "#transparent", // Change highlight color to F6B17A when focused
+              },
             },
           }}
           InputProps={{
             endAdornment: (
               <InputAdornment position="end">
                 <IconButton
-                  color="primary"
+                  sx={{ color: "#F6B17A" }}
                   onClick={handleSendMessage}
                   disabled={msgLoading}
                 >
