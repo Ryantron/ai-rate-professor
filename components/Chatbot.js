@@ -22,8 +22,7 @@ import DialogContent from "@mui/material/DialogContent";
 import DialogContentText from "@mui/material/DialogContentText";
 import DialogTitle from "@mui/material/DialogTitle";
 // Scraping libraries
-// import axios from "axios";
-// import * as cheerio from 'cheerio';
+import axios from "axios";
 
 // Define the shape of a message according to the OpenAI API schema
 const MessageComponent = ({ message }) => (
@@ -118,12 +117,16 @@ const Chatbot = () => {
   };
 
   const handleWebScrap = async (link) => {
-    console.log(link);
     if (!link.trim()) return;
-
-    // TODO: no permission (CORS policy), try 
-    const { data } = await axios.get(link);
-    console.log(data);
+    // NOTE: query on server side (/api/link) w. middleware setup for CORS
+    try {
+      const response = await axios.get(`/api/link`, { params: { url: link } });
+      const reviews = response.data;
+      console.log(reviews);
+      // TODO: response should return the json of scrapped data in format of reviews.json?
+    } catch (error) {
+      console.error(error);
+    }
   };
 
   const handleClickOpen = () => {
@@ -192,6 +195,7 @@ const Chatbot = () => {
                 const formJson = Object.fromEntries(formData.entries());
                 const professorLink = formJson.link; // Get the submitted link
                 // TODO: Scraping logic here with the professorLink
+                // TODO: try/catch with handleWebScrap, show dialog for success/failure
                 handleWebScrap(professorLink);
                 handleClose();
               },

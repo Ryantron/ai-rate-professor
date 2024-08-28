@@ -1,124 +1,139 @@
 {
   "reviews": [
-    {
-      "professor": "Dr. Emily Thompson",
-      "subject": "Computer Science",
-      "stars": 5,
-      "review": "Excellent professor with clear explanations and very approachable."
-    },
-    {
-      "professor": "Dr. Michael Carter",
-      "subject": "Mathematics",
-      "stars": 4,
-      "review": "Great lecturer but can be a bit fast-paced at times."
-    },
-    {
-      "professor": "Dr. Sophia Patel",
-      "subject": "Physics",
-      "stars": 3,
-      "review": "Good content, but could improve on student engagement."
-    },
-    {
-      "professor": "Dr. James Anderson",
-      "subject": "Chemistry",
-      "stars": 5,
-      "review": "Challenging course but rewarding. Great support provided!"
-    },
-    {
-      "professor": "Dr. Olivia Harris",
-      "subject": "English Literature",
-      "stars": 2,
-      "review": "Class felt disorganized and difficult to follow."
-    },
-    {
-      "professor": "Dr. Daniel Lee",
-      "subject": "Biology",
-      "stars": 4,
-      "review": "Knowledgeable but sometimes hard to understand."
-    },
-    {
-      "professor": "Dr. Sarah Mitchell",
-      "subject": "Psychology",
-      "stars": 5,
-      "review": "Really engaging lectures with great real-world examples."
-    },
-    {
-      "professor": "Dr. William Brown",
-      "subject": "History",
-      "stars": 3,
-      "review": "Decent lecturer but readings are overwhelming."
-    },
-    {
-      "professor": "Dr. Elizabeth Kim",
-      "subject": "Sociology",
-      "stars": 4,
-      "review": "Friendly and knowledgeable, though assignments are challenging."
-    },
-    {
-      "professor": "Dr. David Wilson",
-      "subject": "Political Science",
-      "stars": 5,
-      "review": "Very insightful and makes the subject matter interesting."
-    },
-    {
-      "professor": "Dr. Jennifer Collins",
-      "subject": "Philosophy",
-      "stars": 3,
-      "review": "Interesting topics, but grading is tough."
-    },
-    {
-      "professor": "Dr. Mark Hernandez",
-      "subject": "Economics",
-      "stars": 4,
-      "review": "Provides great examples but can be a bit dry."
-    },
-    {
-      "professor": "Dr. Rachel Johnson",
-      "subject": "Art History",
-      "stars": 5,
-      "review": "Makes art history fascinating with deep analysis and passion."
-    },
-    {
-      "professor": "Dr. Andrew Roberts",
-      "subject": "Statistics",
-      "stars": 2,
-      "review": "Confusing lectures, and not much support outside of class."
-    },
-    {
-      "professor": "Dr. Julia White",
-      "subject": "Environmental Science",
-      "stars": 4,
-      "review": "Very engaging and passionate about the subject."
-    },
-    {
-      "professor": "Dr. George Taylor",
-      "subject": "Engineering",
-      "stars": 3,
-      "review": "Decent professor but workload is extremely heavy."
-    },
-    {
-      "professor": "Dr. Laura Scott",
-      "subject": "Anthropology",
-      "stars": 5,
-      "review": "One of the best professors I've had, very passionate!"
-    },
-    {
-      "professor": "Dr. Kevin Wright",
-      "subject": "Law",
-      "stars": 4,
-      "review": "Challenging course but great feedback on papers."
-    },
-    {
-      "professor": "Dr. Susan Evans",
-      "subject": "Business",
-      "stars": 2,
-      "review": "Lack of organization makes it hard to follow the material."
-    },
-    {
-      "professor": "Dr. Thomas Green",
-      "subject": "Philosophy",
-      "stars": 3,
-      "review": "Philosophically deep, but very difficult to follow at times."
-    }
+      {
+          "professor": "Shudong Hao",
+          "department": "Professor in the Computer Science department at Stevens Institute of Technology",
+          "class": "CS392",
+          "quality": 5,
+          "difficulty": 3,
+          "review": "The exams are hard, but I absolutely love him. He's a master of reducing down topics and makes fantastic visuals. He writes his own text book (which he gives you) so he knows the content inside and out. Lots of detailed examples and demos. Homeworks are the perfect length, interesting, and on topic. Easy recommendation.",
+          "timestamp": "May 1st, 2024"
+      },
+      {
+          "professor": "Shudong Hao",
+          "department": "Professor in the Computer Science department at Stevens Institute of Technology",
+          "class": "CS382",
+          "quality": 4,
+          "difficulty": 5,
+          "review": "He is a nice professor but not a good exam maker. His exam focus too much on tiny details and takes away a lot of points. I took both 382 and 392, and the exam was hard asf. Based on what he said this is the third year he teach. I was told 382 exam average 2022 was 36 , 2023 was 46 or 56, so do work hard for exam",
+          "timestamp": "Apr 11th, 2024"
+      },
+      {
+          "professor": "Shudong Hao",
+          "department": "Professor in the Computer Science department at Stevens Institute of Technology",
+          "class": "CS382",
+          "quality": 3,
+          "difficulty": 5,
+          "review": "This course is extremely challenging, be prepared to read the textbook beforehand, else you are probably going to be really lost. The exams are extremely difficult, you can expect to spend a lot of time doing practice questions on your own if you wish to do well on the exams. For your reference, the course average for most exams are in the 60-70s.",
+          "timestamp": "Dec 12th, 2023"
+      },
+      {
+          "professor": "Shudong Hao",
+          "department": "Professor in the Computer Science department at Stevens Institute of Technology",
+          "class": "CS392",
+          "quality": 5,
+          "difficulty": 3,
+          "review": "He does not accept any late work no matter what. Lectures are really great and homework assignments are always interesting. In every lecture, he gives out hints on the content of midterms and final. He is very friendly and is impressed by doing hws with recursion.",
+          "timestamp": "Jul 22nd, 2023"
+      },
+      {
+          "professor": "Shudong Hao",
+          "department": "Professor in the Computer Science department at Stevens Institute of Technology",
+          "class": "CS382",
+          "quality": 2,
+          "difficulty": 4,
+          "review": "If you're a CySec major, you're really going to be going through it when you take this class. On top of 334 and 385, 382 will be the most laborious. I managed to get 100s on most of the homework/labs, but I allocated more hours than I should have for this class. The grading certainly doesn't help, since 36% was the average for the first exam.",
+          "timestamp": "Apr 13th, 2023"
+      },
+      {
+          "professor": "Shudong Hao",
+          "department": "Professor in the Computer Science department at Stevens Institute of Technology",
+          "class": "CS382",
+          "quality": 3,
+          "difficulty": 5,
+          "review": "Professor Hao is a great lecturer but the course had a rough start. It had harsh grading procedures and a lack of rubrics. The first midterm had 75% of the class get below a 60, but the class turned around after the first half. He is a great lecturer and changed a lot over the semester. The class was loads of fun after he changed. High workload!",
+          "timestamp": "Apr 5th, 2023"
+      },
+      {
+          "professor": "Shudong Hao",
+          "department": "Professor in the Computer Science department at Stevens Institute of Technology",
+          "class": "CS392",
+          "quality": 3,
+          "difficulty": 3,
+          "review": "Shudong is MUCH better in 392, but it's also a better course. He gives you everything you need to do the homework assignments. They all felt fair except for std392io and midterm 2. I enjoyed him and the lectures. If you don't get a 100 on an assignment, no extra credit for it. Very knowledgeable, but still learning how to be a good professor.",
+          "timestamp": "Jan 6th, 2023"
+      },
+      {
+          "professor": "Shudong Hao",
+          "department": "Professor in the Computer Science department at Stevens Institute of Technology",
+          "class": "CS382",
+          "quality": 1,
+          "difficulty": 4,
+          "review": "He is highly unprofessional. Reading the textbook is a MUST, but it probably won't help you very much on the tests. The homework and the labs do not really relate to what we are learning in class, and honestly some of the assembly ones just feel like busy work. Do not recommend.",
+          "timestamp": "Dec 8th, 2022"
+      },
+      {
+          "professor": "Shudong Hao",
+          "department": "Professor in the Computer Science department at Stevens Institute of Technology",
+          "class": "CS382",
+          "quality": 1,
+          "difficulty": 4,
+          "review": "He is condescending to his students and expects you to know everything by heart after saying things one time. His grading may not be too harsh but it is often wrong.",
+          "timestamp": "Dec 8th, 2022"
+      },
+      {
+          "professor": "Shudong Hao",
+          "department": "Professor in the Computer Science department at Stevens Institute of Technology",
+          "class": "CS382",
+          "quality": 5,
+          "difficulty": 5,
+          "review": "Every question on Shudong's exams are straight out of his textbook, so just pay attention and read and you'll be fine. Learned a lot in this course, and despite being quite harsh with credit on certain assignments, he is a good professor.",
+          "timestamp": "Dec 7th, 2022"
+      },
+      {
+          "professor": "Shudong Hao",
+          "department": "Professor in the Computer Science department at Stevens Institute of Technology",
+          "class": "CS382",
+          "quality": 5,
+          "difficulty": 3,
+          "review": "He's honestly an awesome professor! All you needed to do was either pay attention during lectures or watch the lecture recordings and take notes. He goes out of his way to connect with students and provide help when we ask for it. He also listens to course feedback and curves the class. You may have to email him a few times about misgraded work.",
+          "timestamp": "Apr 3rd, 2022"
+      },
+      {
+          "professor": "Shudong Hao",
+          "department": "Professor in the Computer Science department at Stevens Institute of Technology",
+          "class": "CS382",
+          "quality": 2,
+          "difficulty": 4,
+          "review": "He expects you to know the material from heart and more after he is done teaching it. For labs little to nothing to do with the actual things you learn in the class. makes you write assembly code of things that would be ten times easier to code in c++, java, or python like merge sort. Class and labs does not relate to each other around the week 5.",
+          "timestamp": "Mar 29th, 2022"
+      },
+      {
+          "professor": "Shudong Hao",
+          "department": "Professor in the Computer Science department at Stevens Institute of Technology",
+          "class": "CS382",
+          "quality": 4,
+          "difficulty": 4,
+          "review": "Shudong is honestly an amazing teacher if you pay attention in lecture. I was learning a lot in the beginning, but then I stopped paying attention after a certain point and I was just so lost. Very heavy on homework and labs. Only bad thing is that grading is not consistent. There is a lot of bad grading but if you email him, he will fix it.",
+          "timestamp": "Mar 27th, 2022"
+      },
+      {
+          "professor": "Shudong Hao",
+          "department": "Professor in the Computer Science department at Stevens Institute of Technology",
+          "class": "CS382",
+          "quality": 4,
+          "difficulty": 3,
+          "review": "Has a real in-depth understanding of the course and is equipped to answer a wide arrange of questions. He's pretty unforgiving in terms of late assignments or any requests for extensions. Very available outside of class for help in terms of emails and office hours and overall shows that he cares about helping and getting to know the student.",
+          "timestamp": "Jan 20th, 2022"
+      },
+      {
+          "professor": "Shudong Hao",
+          "department": "Professor in the Computer Science department at Stevens Institute of Technology",
+          "class": "CS382",
+          "quality": 2,
+          "difficulty": 5,
+          "review": "Labs and non-written homework assignments, which is most of the work, is just barely related to the course material, and really hurts when it leaves us barely knowing what to answer on the tests. Said labs and programming assignments are a struggle for students, and due dates are so close to each other that received help is minimal.",
+          "timestamp": "Dec 31st, 2021"
+      }
   ]
 }

@@ -3,7 +3,7 @@ import { Pinecone } from "@pinecone-database/pinecone";
 import fetch from "node-fetch";
 import { NextResponse } from "next/server";
 
-const MODEL = "sentence-transformers/all-mpnet-base-v2";
+const MODEL = "intfloat/multilingual-e5-large";
 const HUGGINGFACE_API_TOKEN = process.env.HUGGINGFACE_API_TOKEN;
 
 // Configure OpenAI client with base URL and API key
