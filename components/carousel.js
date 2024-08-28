@@ -33,11 +33,18 @@ function ProfessorCarousel() {
         indicators={false}
         navButtonsProps={{          
           style: {
-            backgroundColor: '#A3A380',
-            color: '#EFEBCE',
+            backgroundColor: '#7077A1',
+            color: 'white',
           },
         }}
-        NextIcon={<ArrowForwardIosIcon />}
+        navButtonsWrapperProps={{
+          style: {
+            top: '50%',
+            transform: 'translateY(-50%)',
+            margin: '0 10px', // Adjust the distance from the card
+          }
+        }}
+        NextIcon={<ArrowForwardIosIcon/>}
         PrevIcon={<ArrowBackIosIcon />}
       >
         {professors.map((professor, index) => (
@@ -46,9 +53,10 @@ function ProfessorCarousel() {
             sx={{
               maxWidth: 600,
               margin: 'auto',
-              backgroundColor: '#D8A48F',
-              color: '#EFEBCE',
+              backgroundColor: '#7077A1',
+              color: 'White',
               padding: 4,
+              borderRadius: 4,
             }}
           >
             <CardContent>

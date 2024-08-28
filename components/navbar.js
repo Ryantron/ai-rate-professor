@@ -10,7 +10,7 @@ import SmartToyIcon from '@mui/icons-material/SmartToy'; // Chat bot icon
 export default function Navbar({ home }) {
   return (
     <Box sx={{ flexGrow: 1 }}>
-      <AppBar position="static" sx={{ bgcolor: '#A3A380' }}>
+      <AppBar position="static" sx={{ bgcolor: '#7077A1' }}>
         <Toolbar>
           <IconButton
             size="large"

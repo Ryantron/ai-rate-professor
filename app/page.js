@@ -12,11 +12,11 @@ export default function Home() {
         <CssBaseline />
         
         {/* Search Section */}
-        <Box sx={{ mt: 8, mb: 4, textAlign: 'center', color: "#BB8588" }}>
+        <Box sx={{ mt: '15vh', mb: 4, textAlign: 'center', color: "white" }}>
           <Typography variant="h2" gutterBottom>
             Find Your Professor
           </Typography>
-          <Button href='/generate' sx={{ backgroundColor: '#A3A380', color: "white", px: 3}}> Click here </Button>
+          <Button href='/generate' sx={{ backgroundColor: '#F6B17A', color: "white", px: 4, borderRadius: 4}}> Click here </Button>
         </Box>
         
         {/* Professors List */}
