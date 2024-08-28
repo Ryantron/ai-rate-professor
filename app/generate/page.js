@@ -1,4 +1,4 @@
-import Chatbot from "@/components/Chatbot";
+import Chatbot from "@/components/chatbot";
 import { Box, Container } from "@mui/material";
 
 export default function Generate() {
