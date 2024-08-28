@@ -9,6 +9,7 @@ import {
   IconButton,
   Avatar,
   Button,
+  CircularProgress,
 } from "@mui/material";
 import Fab from "@mui/material/Fab";
 import ArrowUpwardIcon from "@mui/icons-material/ArrowUpward";
@@ -59,14 +60,16 @@ const MessageComponent = ({ message }) => (
 const Chatbot = () => {
   const [messages, setMessages] = useState([]);
   const [input, setInput] = useState("");
-  const [loading, setLoading] = useState(false);
+  const [msgLoading, setMsgLoading] = useState(false); // Sending messages
+  const [submitLoading, setSubmitLoading] = useState(false); // Link submission loading
+  const [status, setStatus] = useState(null); // Link submission result: null, 'success', 'failure'
   const [open, setOpen] = React.useState(false);
   const messagesEndRef = useRef(null);
 
   const handleSendMessage = async () => {
-    if (!input.trim() || loading) return;
+    if (!input.trim() || msgLoading) return;
 
-    setLoading(true);
+    setMsgLoading(true);
 
     const userMessage = { roles: "user", content: input };
     setMessages((messages) => [
@@ -113,19 +116,45 @@ const Chatbot = () => {
       ]);
     }
 
-    setLoading(false);
+    setMsgLoading(false);
   };
 
   const handleWebScrap = async (link) => {
     if (!link.trim()) return;
+    setSubmitLoading(true);
     // NOTE: query on server side (/api/link) w. middleware setup for CORS
+    var reviews = "";
     try {
       const response = await axios.get(`/api/link`, { params: { url: link } });
-      const reviews = response.data;
-      console.log(reviews);
-      // TODO: response should return the json of scrapped data in format of reviews.json?
+      reviews = response.data; // NOTE: assuming valid link to ratemyprofessors used
     } catch (error) {
-      console.error(error);
+      console.error("Error during web scraping:", error);
+      setStatus("failure");
+      setSubmitLoading(false);
+      return; // Skip POST request
+    }
+
+    try {
+      await axios.post(`/api/link`, reviews);
+      setStatus("success");
+    } catch (error) {
+      setStatus("failure");
+      console.error("Error during POST request to Pinecone:", error);
+    } finally {
+      setSubmitLoading(false);
+    }
+  };
+
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+    const formData = new FormData(event.currentTarget);
+    const professorLink = formData.get("link");
+
+    setStatus(null); // Reset status before submission
+    try {
+      await handleWebScrap(professorLink);
+    } catch (error) {
+      console.error("Error:", error);
     }
   };
 
@@ -184,44 +213,61 @@ const Chatbot = () => {
           <Fab onClick={handleClickOpen} color="primary">
             <InsertLinkIcon />
           </Fab>
-          <Dialog
-            open={open}
-            onClose={handleClose}
-            PaperProps={{
-              component: "form",
-              onSubmit: (event) => {
-                event.preventDefault();
-                const formData = new FormData(event.currentTarget);
-                const formJson = Object.fromEntries(formData.entries());
-                const professorLink = formJson.link; // Get the submitted link
-                // TODO: Scraping logic here with the professorLink
-                // TODO: try/catch with handleWebScrap, show dialog for success/failure
-                handleWebScrap(professorLink);
-                handleClose();
-              },
-            }}
-          >
+          <Dialog open={open} onClose={handleClose}>
             <DialogTitle>Submit RateMyProfessors Link</DialogTitle>
             <DialogContent>
               <DialogContentText>
                 To add a professor&apos;s information, please enter the
                 RateMyProfessors link here.
               </DialogContentText>
-              <TextField
-                autoFocus
-                required
-                margin="dense"
-                id="link"
-                name="link"
-                label="RateMyProfessors Link Submission"
-                type="url"
-                fullWidth
-                variant="standard"
-              />
+              {submitLoading ? (
+                <CircularProgress
+                  style={{ display: "block", margin: "0 auto" }}
+                />
+              ) : (
+                <form onSubmit={handleSubmit}>
+                  <TextField
+                    autoFocus
+                    required
+                    margin="dense"
+                    id="link"
+                    name="link"
+                    label="RateMyProfessors Link Submission"
+                    type="url"
+                    fullWidth
+                    variant="standard"
+                  />
+                  <DialogActions>
+                    <Button onClick={handleClose}>Cancel</Button>
+                    <Button type="submit">Submit</Button>
+                  </DialogActions>
+                </form>
+              )}
+            </DialogContent>
+          </Dialog>
+
+          {/* Success or Failure Message */}
+          <Dialog open={status === "success"} onClose={() => setStatus(null)}>
+            <DialogTitle>Success</DialogTitle>
+            <DialogContent>
+              <DialogContentText>
+                Your RateMyProfessors link has successfully submitted!
+              </DialogContentText>
             </DialogContent>
             <DialogActions>
-              <Button onClick={handleClose}>Cancel</Button>
-              <Button type="submit">Submit</Button>
+              <Button onClick={() => setStatus(null)}>Close</Button>
+            </DialogActions>
+          </Dialog>
+
+          <Dialog open={status === "failure"} onClose={() => setStatus(null)}>
+            <DialogTitle>Failure</DialogTitle>
+            <DialogContent>
+              <DialogContentText>
+                Your RateMyProfessors link failed to submit.
+              </DialogContentText>
+            </DialogContent>
+            <DialogActions>
+              <Button onClick={() => setStatus(null)}>Close</Button>
             </DialogActions>
           </Dialog>
         </React.Fragment>
@@ -232,9 +278,9 @@ const Chatbot = () => {
           value={input}
           onChange={(e) => setInput(e.target.value)}
           onKeyDownCapture={(e) => {
-            if (e.key === "Enter" && !loading) handleSendMessage();
+            if (e.key === "Enter" && !msgLoading) handleSendMessage();
           }}
-          disabled={loading}
+          disabled={msgLoading}
           sx={{
             borderRadius: 30,
             "& .MuiOutlinedInput-root": {
@@ -248,7 +294,7 @@ const Chatbot = () => {
                 <IconButton
                   color="primary"
                   onClick={handleSendMessage}
-                  disabled={loading}
+                  disabled={msgLoading}
                 >
                   <ArrowUpwardIcon />
                 </IconButton>

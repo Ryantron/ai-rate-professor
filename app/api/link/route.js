@@ -2,14 +2,7 @@ import { Pinecone } from "@pinecone-database/pinecone";
 import axios from "axios";
 import * as cheerio from "cheerio";
 import { NextResponse } from "next/server";
-
-const MODEL = "intfloat/multilingual-e5-large";
-const HUGGINGFACE_API_TOKEN = process.env.HUGGINGFACE_API_TOKEN;
-
-const pc = new Pinecone({
-  apiKey: process.env.PINECONE_API_KEY,
-});
-const index = pc.index("rag").namespace("ns1");
+import { v4 as uuidv4 } from "uuid";
 
 export async function GET(req) {
   const { searchParams } = new URL(req.url);
@@ -27,7 +20,8 @@ export async function GET(req) {
 
     // Parse the professor's name and department
     const professorName = $('div[class*="NameTitle__Name"]').text().trim();
-    const department = $('div[class*="NameTitle__Title"]').text().trim();
+    const department = $('div[class*="NameTitle__Title"] b').text().trim();
+    const school = $('div[class*="NameTitle__Title"] a').last().text().trim();
     const reviews = [];
 
     // Iterate over each review
@@ -65,12 +59,13 @@ export async function GET(req) {
 
       reviews.push({
         professor: professorName,
+        school: school,
         department: department,
         class: className,
         quality: quality,
         difficulty: difficulty,
-        review: reviewText,
         timestamp: timestamp,
+        review: reviewText,
       });
     });
 
@@ -88,5 +83,59 @@ export async function GET(req) {
 }
 
 export async function POST(req) {
-  return NextResponse.json();
+  // Initialize Pinecone and other configurations inside the POST function
+  const MODEL = "sentence-transformers/all-mpnet-base-v2";
+  const HUGGINGFACE_API_TOKEN = process.env.HUGGINGFACE_API_TOKEN;
+
+  const pc = new Pinecone({
+    apiKey: process.env.PINECONE_API_KEY,
+  });
+  const index = pc.index("rag").namespace("ns1");
+
+  const api_url = `https://api-inference.huggingface.co/pipeline/feature-extraction/${MODEL}`;
+  const headers = { Authorization: `Bearer ${HUGGINGFACE_API_TOKEN}` };
+
+  try {
+    const body = await req.json(); // Parse the incoming JSON request
+    const processedData = [];
+
+    // Iterate over each review in the request body
+    for (const review of body.reviews) {
+      // Request embedding for the review content from Hugging Face API
+      const response = await axios.post(
+        api_url,
+        { inputs: review.review, options: { wait_for_model: true } },
+        { headers }
+      );
+      const embedding = response.data;
+
+      // Generate a unique ID using UUID for each review to avoid overwriting in Pinecone
+      const unique_id = uuidv4();
+
+      // Append the processed data with the new structure
+      processedData.push({
+        id: unique_id, // Unique ID for each review
+        values: embedding, // Embedding returned by Hugging Face
+        metadata: {
+          professor: review.professor,
+          school: review.school,
+          department: review.department,
+          class: review.class,
+          quality: review.quality,
+          difficulty: review.difficulty,
+          timestamp: review.timestamp,
+          review: review.review,
+        },
+      });
+    }
+
+    // Insert the embeddings into Pinecone
+    const upsertResponse = await index.upsert(processedData);
+
+    // Return the upsert response as JSON
+    return NextResponse.json({ upsertResponse });
+  } catch (error) {
+    console.error("Error processing reviews:", error);
+    return NextResponse.json({ error: error.message }, { status: 500 });
+  }
 }
