@@ -51,7 +51,7 @@ async function fetchEmbeddingsWithRetry(text, retries = 5) {
 // POST function to handle incoming requests
 export async function GET() {
   // Encode the text using the sentence-transformers model
-  const queryEmbedding = await fetchEmbeddingsWithRetry('Dr. A B C');
+  const queryEmbedding = await fetchEmbeddingsWithRetry('Dr. U');
 
   // Query Pinecone with the generated embedding
   const results = await index.query({

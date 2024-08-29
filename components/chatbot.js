@@ -211,7 +211,16 @@ const Chatbot = () => {
       <Box sx={{ display: "flex", gap: 1 }}>
         {/* Submit link to professor's page on Rate My Professor */}
         <React.Fragment>
-          <Fab onClick={handleClickOpen} color="primary">
+          <Fab
+            onClick={handleClickOpen}
+            sx={{
+              backgroundColor: "#F6B17A",
+              "&:hover": {
+                backgroundColor: "#E6955F", // Darker shade of #F6B17A
+              },
+            }}
+            color="primary"
+          >
             <InsertLinkIcon />
           </Fab>
           <Dialog
